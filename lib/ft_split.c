@@ -1,85 +1,100 @@
-#include <stdlib.h>
-#include <stdio.h>
-int wcount(char c, char *str)
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_split.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: yoyahya <yoyahya@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/01/09 16:18:31 by yoyahya           #+#    #+#             */
+/*   Updated: 2023/01/10 15:48:51 by yoyahya          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "header.h"
+
+static int	count(const char *str, char c)
 {
-	int i = 0;
-	int count = 0;
-	while(str[i])
+	int	i;
+	int	count;
+
+	count = 0;
+	i = 0;
+	while (str[i] != '\0')
 	{
-		if(str[i] == c)
+		if (str[i] == c)
 			i++;
 		else
 		{
 			count++;
-			while(str[i] && str[i] != c)
+			while (str[i] != c && str[i])
 				i++;
 		}
 	}
 	return (count);
 }
-char *mword(char c, char *str, int *i)
+
+static char	*mword( const char *s, char c, int *i)
 {
-	int k = 0;
-	int j = 0;
-	char *copy;
-	while(str[*i] && str[*i] == c)
+	int		len;
+	int		j;
+	char	*temp;
+
+	while (s[*i] == c)
 		(*i)++;
-	k = *i;
-	while(str[*i] && str[*i] != c)
+	len = 0;
+	j = *i;
+	while (s[j] && s[j] != c)
 	{
-		(*i)++;
+		len++;
 		j++;
 	}
-	copy = malloc(sizeof(char) * j + 1);
+	temp = malloc((len + 1) * sizeof(char));
 	j = 0;
-	while(str[k] && str[k] != c)
+	if (temp == NULL)
+		return (NULL);
+	while (s[(*i)] != '\0' && s[(*i)] != c)
 	{
-		copy[j] = str[k];
-		k++;
+		temp[j] = s[(*i)];
 		j++;
+		(*i)++;
 	}
-	copy[j] = '\0';
-	return (copy);
+	temp[j] = '\0';
+	return (temp);
 }
-char **free_arr(char **arr)
+
+static char	**merror(char **tab)
 {
-	int i = 0;
-	while(arr[i])
-	{
-		free(arr[i]);
-		i++;
-	}
-	free(arr);
+	unsigned int	i;
+
+	i = 0;
+	while (tab[i])
+		free(tab[i++]);
+	free(tab);
 	return (NULL);
 }
-char **ft_split(char *str, char c)
+
+char	**ft_split(char *s, char c)
 {
-	int i = 0;
-	int count = 0;
-	int j = 0;
-	char **arr;
-	count = wcount(c, str);
-	arr = malloc(sizeof(char *) * count + 1);
-	while(i < count)
+	char	**arr;
+	int		k;
+	int		cont;
+	int		i;
+
+	i = 0;
+	k = 0;
+	if (s == NULL)
+		return (NULL);
+	cont = count(s, c);
+	arr = malloc((cont + 1) * sizeof(char *));
+	if (arr == NULL)
+		return (NULL);
+	while (i < cont)
 	{
-		arr[i] = mword(c, str, &j);
-		if(!arr[i])
-			return (free_arr(arr));
+		arr[i] = mword(s, c, &k);
+		if (!arr[i])
+			return (merror(arr));
 		i++;
 	}
 	arr[i] = 0;
 	return (arr);
 }
-
-// int main()
-// {
-// 	int i = 0;
-// 	char str[] = "1111111111\n1E00000001\n1000111101\n1000P00111\n1011111011\n1000000001\n1110C00111\n1111011111\n1000000001\n1111111111";
-// 	char **arr;
-// 	arr = ft_split(str, ' ');
-// 	while(arr[i])
-// 	{
-// 		printf("%s\n", arr[i]);
-// 		i++;
-// 	}
-// }

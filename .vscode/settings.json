@@ -1,0 +1,7 @@
+{
+	"files.associations": {
+		"stdlib.h": "c",
+		"__config": "c",
+		"ft_list_foreach": "c"
+	}
+}
