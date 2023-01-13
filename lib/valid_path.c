@@ -17,12 +17,9 @@ void get_pos(t_window *asset, int *i, int *j)
 
 void reco(t_window *asset, int x, int y)
 {
-	// printf("x = %d | y = %d\n", x, y);
-	// printf("j = %d | i = %d\n", asset->j, asset->i);
-	// printf("%c\n", asset->copy[y][x]);
 	if(x >= (asset->i - 1) || (y >= asset->j) || x <= 0 || y <= 0)
 		return ;
-	if(asset->copy[y][x] == '1' || asset->copy[y][x] == 'E' || asset->copy[y][x] == 'N')
+	if(asset->copy[y][x] == '1' || asset->copy[y][x] == 'N')
 		return ;
 	asset->copy[y][x] = 'N';
 	reco(asset, x - 1, y);
@@ -39,7 +36,7 @@ void check_exit(t_window *asset)
 	{
 		while(asset->copy[i][j])
 		{
-			if(asset->copy[i][j] == 'C')
+			if(asset->copy[i][j] == 'C' || asset->copy[i][j] == 'E')
 				error();
 			j++;
 		}
@@ -52,7 +49,6 @@ void valid_path(t_window *asset)
 	int i = 0;
 	int j = 0;
 	get_pos(asset, &i, &j);
-	printf("%d  | %d\n", j, i);
 	reco(asset, i, j);
 	i = 0;
 	while(asset->copy[i])

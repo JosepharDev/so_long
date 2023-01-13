@@ -6,7 +6,7 @@
 /*   By: yoyahya <yoyahya@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 16:04:02 by yoyahya           #+#    #+#             */
-/*   Updated: 2023/01/11 16:59:10 by yoyahya          ###   ########.fr       */
+/*   Updated: 2023/01/13 18:03:20 by yoyahya          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,14 +44,14 @@ char	*read_map(t_window *data, char *av)
 			error();
 		printf("%s", line);
 		submap = ft_strjoin(submap, line);
+		free(line);
 		line = get_next_line(data->fd);
-		// if (line && ft_strlen(line) != data->i)
-			// error();
+		if (line && ft_strlen(line) != data->i)
+			error();
 		data->j++;
 	}
-	if (submap[ft_strlen(submap) - 1] == '\n')
-		error();
 	data->i--;
+	free(line);
 	close(data->fd);
 	return (submap);
 }
@@ -85,6 +85,7 @@ void	init_asset(t_window *asset, char *av)
 	asset->map = ft_split(map, '\n');
 	asset->copy = ft_split(map, '\n');
 	check_items(map);
+	free(map);
 	check_walls(asset);
 	init_image(asset);
 	asset->x = 0;
@@ -100,6 +101,7 @@ void	init_asset(t_window *asset, char *av)
 		printf("fadfbf\n");
 		exit(1);
 	}
+	// while(1);
 	if (asset->i <= asset->j)
 		error();
 	asset->mlx_win = mlx_new_window(asset->mlx,

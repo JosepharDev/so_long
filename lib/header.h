@@ -6,7 +6,7 @@
 /*   By: yoyahya <yoyahya@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 15:49:16 by yoyahya           #+#    #+#             */
-/*   Updated: 2023/01/11 15:52:36 by yoyahya          ###   ########.fr       */
+/*   Updated: 2023/01/13 17:30:16 by yoyahya          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ typedef struct s_window
 {
 	char	**map;
 	char	**copy;
+	char	**str;
 	void	*wall;
 	void	*up;
 	void	*left;
@@ -54,7 +55,7 @@ int		check_access(t_window *lng, int x, int y);
 void	move_player(t_window *mlx, void *pos, int flag);
 void	fill_map(t_window *truct);
 void	init_asset(t_window *asset, char *av);
-void	check_map(int ac, char **av);
+void	check_map(int ac, char **av, t_window *lng);
 char	*ft_strjoin(char *s1, char *s2);
 char	**ft_split(char *str, char c);
 void	fill(char **arr, t_window *lng);
@@ -65,5 +66,5 @@ int		handle_input(int key, t_window *data);
 void	print(int n);
 int		ft_strlen(char *str);
 void	valid_path(t_window *asset);
-
+char	**merror(char **tab);
 #endif

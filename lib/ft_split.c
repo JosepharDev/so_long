@@ -6,7 +6,7 @@
 /*   By: yoyahya <yoyahya@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 16:18:31 by yoyahya           #+#    #+#             */
-/*   Updated: 2023/01/10 15:48:51 by yoyahya          ###   ########.fr       */
+/*   Updated: 2023/01/13 17:30:11 by yoyahya          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ static char	*mword( const char *s, char c, int *i)
 	return (temp);
 }
 
-static char	**merror(char **tab)
+char	**merror(char **tab)
 {
 	unsigned int	i;
 

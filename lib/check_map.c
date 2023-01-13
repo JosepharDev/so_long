@@ -6,7 +6,7 @@
 /*   By: yoyahya <yoyahya@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 16:14:54 by yoyahya           #+#    #+#             */
-/*   Updated: 2023/01/11 15:52:26 by yoyahya          ###   ########.fr       */
+/*   Updated: 2023/01/13 17:26:46 by yoyahya          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,30 +19,32 @@ void	ft_error(void)
 	exit(1);
 }
 
-char **test(char *av)
+void	test(char *av, t_window *lng)
 {
-	char **copy = ft_split(av, '/');
-	int i = 0;
-	while(copy[i])
-		i++;
-	return (copy);
+	if(av[0] == '\0')
+		exit(1);
+	lng->str = ft_split(av, '/');
+	if(!lng->str)
+		exit(1);
 }
 
-void	check_map(int ac, char **av)
+void	check_map(int ac, char **av, t_window *lng)
 {
 	int	i;
 
 	i = 0;
 	int j = 0;
-	char **str = test(av[1]);
-	while(str[i])
+	test(av[1], lng);
+		if(!lng->str)
+			exit(1);
+	while(lng->str[i])
 		i++;
 	if (ac == 2)
 	{
-		if (strlen(str[i - 1]) > 4)
+		if (strlen(lng->str[i - 1]) > 4)
 		{
-			j = strlen(str[i - 1]);
-			if (strncmp(&str[i - 1][j - 4], ".ber", 4) != 0)
+			j = strlen(lng->str[i - 1]);
+			if (strncmp(&lng->str[i - 1][j - 4], ".ber", 4) != 0)
 				ft_error();
 		}
 		else

@@ -6,7 +6,7 @@
 /*   By: yoyahya <yoyahya@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 14:34:00 by yoyahya           #+#    #+#             */
-/*   Updated: 2023/01/11 15:53:08 by yoyahya          ###   ########.fr       */
+/*   Updated: 2023/01/13 17:51:38 by yoyahya          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ int	main(int ac, char **av)
 
 	if(ac == 2)
 	{
-		check_map(ac, av);
+		check_map(ac, av, &truct);
 		init_asset(&truct, av[1]);
 		valid_path(&truct);
 		fill(truct.map, &truct);
