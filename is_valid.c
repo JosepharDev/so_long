@@ -6,7 +6,7 @@
 /*   By: yoyahya <yoyahya@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 14:05:24 by yoyahya           #+#    #+#             */
-/*   Updated: 2023/01/11 15:52:58 by yoyahya          ###   ########.fr       */
+/*   Updated: 2023/01/14 11:11:23 by yoyahya          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,8 @@
 
 void	error(void)
 {
-	printf("invalid map");
+	write(2, "Error\n", 6);
+	write(2, "invalid map", 11);
 	exit(1);
 }
 

@@ -6,17 +6,16 @@
 /*   By: yoyahya <yoyahya@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 15:49:16 by yoyahya           #+#    #+#             */
-/*   Updated: 2023/01/13 17:30:16 by yoyahya          ###   ########.fr       */
+/*   Updated: 2023/01/14 12:16:49 by yoyahya          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef HEADER_H
 # define HEADER_H
 
-# include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
-# include <string.h>
+# include <stdio.h>
 # include <fcntl.h>
 # include <mlx.h>
 # include "get_next_line.h"
@@ -67,4 +66,6 @@ void	print(int n);
 int		ft_strlen(char *str);
 void	valid_path(t_window *asset);
 char	**merror(char **tab);
+void	print_exit(int error);
+char	*read_map(t_window *data);
 #endif

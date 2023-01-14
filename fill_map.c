@@ -6,7 +6,7 @@
 /*   By: yoyahya <yoyahya@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 14:09:19 by yoyahya           #+#    #+#             */
-/*   Updated: 2023/01/10 16:04:26 by yoyahya          ###   ########.fr       */
+/*   Updated: 2023/01/14 09:25:49 by yoyahya          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@ int	check_access(t_window *lng, int x, int y)
 		return (0);
 	if (lng->map[y][x] == 'E' && lng->c_items == 0)
 	{
-		printf("YOU WIN");
 		print(lng->mv++);
+		write(1, "	YOU WIN\n", 9);
 		exit(0);
 	}
 	if (lng->map[y][x] == 'E')

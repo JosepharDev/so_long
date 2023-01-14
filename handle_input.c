@@ -6,7 +6,7 @@
 /*   By: yoyahya <yoyahya@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 14:45:53 by yoyahya           #+#    #+#             */
-/*   Updated: 2023/01/10 16:04:35 by yoyahya          ###   ########.fr       */
+/*   Updated: 2023/01/14 10:41:46 by yoyahya          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ void	help_handl(int key, t_window *data)
 	else if (key == 53)
 	{
 		mlx_destroy_window(data->mlx, data->mlx_win);
-		exit(1);
+		exit(0);
 	}
 }
 

@@ -6,7 +6,7 @@
 /*   By: yoyahya <yoyahya@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 14:34:00 by yoyahya           #+#    #+#             */
-/*   Updated: 2023/01/13 17:51:38 by yoyahya          ###   ########.fr       */
+/*   Updated: 2023/01/14 12:22:06 by yoyahya          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,17 +46,24 @@ void	move_player(t_window *mlx, void *pos, int flag)
 		pos, mlx->px, mlx->py);
 }
 
+int	ft_close(t_window *win)
+{
+	mlx_destroy_window(win->mlx, win->mlx_win);
+	exit(0);
+}
+
 int	main(int ac, char **av)
 {
 	t_window	truct;
 
-	if(ac == 2)
+	if (ac == 2)
 	{
 		check_map(ac, av, &truct);
 		init_asset(&truct, av[1]);
 		valid_path(&truct);
 		fill(truct.map, &truct);
 		mlx_hook(truct.mlx_win, 2, 0, &handle_input, &truct);
+		mlx_hook(truct.mlx_win, 17, 0, &ft_close, &truct);
 		mlx_loop(truct.mlx);
 	}
 	else
