@@ -1,5 +1,5 @@
 NAME = so_long
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -fsanitize=address -g3
 CC = CC
 RM = rm -f
 SRC = check_map.c fill_map.c ft_split.c ft_strjoin.c get_next_line.c get_next_line_utils.c handle_input.c init_asset.c is_valid.c print_exit.c \
@@ -12,7 +12,7 @@ all: ${NAME}
 	$(CC) $(CFLAGS) -Imlx -c $< -o $@
 
 $(NAME): $(OBJ)
-	$(CC) $(OBJ) -lmlx -framework OpenGL -framework AppKit -o $(NAME)
+	$(CC) $(CFLAGS) $(OBJ) -lmlx -framework OpenGL -framework AppKit -o $(NAME)
 
 clean:
 	rm -f $(OBJ)

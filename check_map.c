@@ -6,7 +6,7 @@
 /*   By: yoyahya <yoyahya@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 16:14:54 by yoyahya           #+#    #+#             */
-/*   Updated: 2023/01/14 11:23:17 by yoyahya          ###   ########.fr       */
+/*   Updated: 2023/01/14 22:19:42 by yoyahya          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,8 +51,6 @@ void	check_map(int ac, char **av, t_window *lng)
 	i = 0;
 	j = 0;
 	test(av[1], lng);
-	if (!lng->str)
-		exit(1);
 	while (lng->str[i])
 		i++;
 	if (ac == 2)

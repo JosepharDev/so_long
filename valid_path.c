@@ -6,7 +6,7 @@
 /*   By: yoyahya <yoyahya@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/14 08:44:35 by yoyahya           #+#    #+#             */
-/*   Updated: 2023/01/14 13:09:25 by yoyahya          ###   ########.fr       */
+/*   Updated: 2023/01/14 22:37:58 by yoyahya          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 void	get_pos(t_window *asset, int *i, int *j, char c)
 {
-	while (asset->copy[*j][*i] && asset->copy[*j][*i])
+	while (asset->copy[*j])
 	{
-		while (asset->copy[*j][*i] && asset->copy[*j][*i])
+		while (asset->copy[*j][*i])
 		{
 			if (asset->copy[*j][*i] == c)
 				return ;
@@ -48,25 +48,27 @@ void	check_exit(t_window *asset)
 
 	i = 0;
 	j = 0;
-	while (asset->copy[i])
+	while (asset->copy[j])
 	{
-		while (asset->copy[i][j])
+		while (asset->copy[j][i])
 		{
-			if (asset->copy[i][j] == 'C')
+			if (asset->copy[j][i] == 'C')
 				error();
-			j++;
+			i++;
 		}
-		j = 0;
-		i++;
+		i = 0;
+		j++;
 	}
 }
 
-void	ft_exit_find(char **str, int i, int j)
+void	ft_exit_find(t_window *str, int i, int j)
 {
-	if (str[i][j] == 'E')
+	if (str->copy[j][i] == 'E')
 	{
-		if (str[i][j + 1] == '1' && str[i][j - 1] == '1' &&
-			str[i - 1][j] == '1' && str[i + 1][j] == '1')
+		if (str->map[j][i + 1] != '1' || str->copy[j][i - 1] != '1' ||
+			str->copy[j - 1][i] != '1' || str->copy[j + 1][i] != '1')
+			return ;
+		else
 			error();
 	}
 }
@@ -84,5 +86,5 @@ void	valid_path(t_window *asset)
 	i = 0;
 	j = 0;
 	get_pos(asset, &i, &j, 'E');
-	ft_exit_find(asset->copy, i, j);
+	ft_exit_find(asset, i, j);
 }
