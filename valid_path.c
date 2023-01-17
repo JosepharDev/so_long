@@ -6,7 +6,7 @@
 /*   By: yoyahya <yoyahya@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/14 08:44:35 by yoyahya           #+#    #+#             */
-/*   Updated: 2023/01/14 22:37:58 by yoyahya          ###   ########.fr       */
+/*   Updated: 2023/01/17 19:12:04 by yoyahya          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,8 +65,8 @@ void	ft_exit_find(t_window *str, int i, int j)
 {
 	if (str->copy[j][i] == 'E')
 	{
-		if (str->map[j][i + 1] != '1' || str->copy[j][i - 1] != '1' ||
-			str->copy[j - 1][i] != '1' || str->copy[j + 1][i] != '1')
+		if (str->copy[j][i + 1] == 'N' || str->copy[j][i - 1] == 'N' ||
+			str->copy[j - 1][i] == 'N' || str->copy[j + 1][i] == 'N')
 			return ;
 		else
 			error();

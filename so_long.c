@@ -6,7 +6,7 @@
 /*   By: yoyahya <yoyahya@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 14:34:00 by yoyahya           #+#    #+#             */
-/*   Updated: 2023/01/14 21:03:43 by yoyahya          ###   ########.fr       */
+/*   Updated: 2023/01/17 19:18:04 by yoyahya          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,6 @@ int	main(int ac, char **av)
 	{
 		check_map(ac, av, &truct);
 		init_asset(&truct, av[1]);
-		valid_path(&truct);
 		fill(truct.map, &truct);
 		mlx_hook(truct.mlx_win, 2, 0, handle_input, &truct);
 		mlx_hook(truct.mlx_win, 17, 0, ft_close, &truct);
@@ -68,8 +67,8 @@ int	main(int ac, char **av)
 	}
 	else
 	{
-		write(1, "Error\n", 6);
-		write(1, "Number of arg not valid", 23);
+		write(2, "Error\n", 6);
+		write(2, "Number of arg not valid", 23);
 		exit(1);
 	}
 }

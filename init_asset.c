@@ -6,7 +6,7 @@
 /*   By: yoyahya <yoyahya@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 16:04:02 by yoyahya           #+#    #+#             */
-/*   Updated: 2023/01/16 12:42:52 by yoyahya          ###   ########.fr       */
+/*   Updated: 2023/01/17 19:11:23 by yoyahya          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,6 +80,7 @@ void	ft_next(t_window *asset)
 	asset->mv = 1;
 	asset->w_win = asset->i * 40;
 	asset->h_win = asset->j * 40;
+	valid_path(asset);
 	if (asset->i == asset->j)
 		error();
 	asset->mlx_win = mlx_new_window(asset->mlx,
