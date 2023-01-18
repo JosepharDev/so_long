@@ -6,7 +6,7 @@
 /*   By: yoyahya <yoyahya@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 15:49:16 by yoyahya           #+#    #+#             */
-/*   Updated: 2023/01/14 12:16:49 by yoyahya          ###   ########.fr       */
+/*   Updated: 2023/01/18 09:39:56 by yoyahya          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,8 +43,6 @@ typedef struct s_window
 	int		px;
 	int		py;
 	int		c_items;
-	int		p_items;
-	int		e_items;
 	int		mv;
 	int		i;
 	int		j;
@@ -54,7 +52,7 @@ int		check_access(t_window *lng, int x, int y);
 void	move_player(t_window *mlx, void *pos, int flag);
 void	fill_map(t_window *truct);
 void	init_asset(t_window *asset, char *av);
-void	check_map(int ac, char **av, t_window *lng);
+void	check_map(char **av, t_window *lng);
 char	*ft_strjoin(char *s1, char *s2);
 char	**ft_split(char *str, char c);
 void	fill(char **arr, t_window *lng);

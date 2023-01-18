@@ -6,7 +6,7 @@
 /*   By: yoyahya <yoyahya@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 16:14:54 by yoyahya           #+#    #+#             */
-/*   Updated: 2023/01/14 22:19:42 by yoyahya          ###   ########.fr       */
+/*   Updated: 2023/01/18 11:27:49 by yoyahya          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ void	test(char *av, t_window *lng)
 		print_exit(6);
 }
 
-void	check_map(int ac, char **av, t_window *lng)
+void	check_map(char **av, t_window *lng)
 {
 	int	i;
 	int	j;
@@ -53,15 +53,10 @@ void	check_map(int ac, char **av, t_window *lng)
 	test(av[1], lng);
 	while (lng->str[i])
 		i++;
-	if (ac == 2)
+	if (ft_strlen(lng->str[i - 1]) > 4)
 	{
-		if (ft_strlen(lng->str[i - 1]) > 4)
-		{
-			j = ft_strlen(lng->str[i - 1]);
-			if (ft_strncmp(&lng->str[i - 1][j - 4], ".ber", 4) != 0)
-				ft_error();
-		}
-		else
+		j = ft_strlen(lng->str[i - 1]);
+		if (ft_strncmp(&lng->str[i - 1][j - 4], ".ber", 4) != 0)
 			ft_error();
 	}
 	else

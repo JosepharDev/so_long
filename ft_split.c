@@ -6,13 +6,13 @@
 /*   By: yoyahya <yoyahya@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 16:18:31 by yoyahya           #+#    #+#             */
-/*   Updated: 2023/01/14 07:55:43 by yoyahya          ###   ########.fr       */
+/*   Updated: 2023/01/17 19:54:46 by yoyahya          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
 
-static int	count(const char *str, char c)
+int	count(const char *str, char c)
 {
 	int	i;
 	int	count;
@@ -33,7 +33,7 @@ static int	count(const char *str, char c)
 	return (count);
 }
 
-static char	*mword( const char *s, char c, int *i)
+char	*mword( const char *s, char c, int *i)
 {
 	int		len;
 	int		j;

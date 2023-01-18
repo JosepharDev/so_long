@@ -6,7 +6,7 @@
 /*   By: yoyahya <yoyahya@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 14:34:00 by yoyahya           #+#    #+#             */
-/*   Updated: 2023/01/17 19:18:04 by yoyahya          ###   ########.fr       */
+/*   Updated: 2023/01/18 09:41:26 by yoyahya          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ int	main(int ac, char **av)
 
 	if (ac == 2)
 	{
-		check_map(ac, av, &truct);
+		check_map(av, &truct);
 		init_asset(&truct, av[1]);
 		fill(truct.map, &truct);
 		mlx_hook(truct.mlx_win, 2, 0, handle_input, &truct);

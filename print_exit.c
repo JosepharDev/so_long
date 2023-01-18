@@ -6,7 +6,7 @@
 /*   By: yoyahya <yoyahya@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/14 08:28:45 by yoyahya           #+#    #+#             */
-/*   Updated: 2023/01/17 10:34:53 by yoyahya          ###   ########.fr       */
+/*   Updated: 2023/01/18 11:21:40 by yoyahya          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	print_exit(int error)
 	else if (error == 4)
 		write(2, "error can't read from file", 26);
 	else if (error == 5)
-		write(2, "get_next_line return NULL", 26);
+		write(2, "get_next_line return NULL", 25);
 	else if (error == 6)
 		write(2, "error in split arg", 18);
 	exit(1);

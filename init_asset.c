@@ -6,7 +6,7 @@
 /*   By: yoyahya <yoyahya@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 16:04:02 by yoyahya           #+#    #+#             */
-/*   Updated: 2023/01/17 19:11:23 by yoyahya          ###   ########.fr       */
+/*   Updated: 2023/01/18 11:16:16 by yoyahya          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,8 @@ char	*read_map(t_window *data)
 		if (line[0] != '1' || line[data->i - 2] != '1' || line[0] == '\n')
 			error();
 		submap = ft_strjoin(submap, line);
+		if (!submap)
+			print_exit(2);
 		free(line);
 		line = get_next_line(data->fd);
 		if (line && ft_strlen(line) != data->i)
@@ -75,14 +77,10 @@ void	ft_next(t_window *asset)
 	asset->x = 0;
 	asset->y = 0;
 	asset->c_items = 0;
-	asset->p_items = 0;
-	asset->e_items = 0;
 	asset->mv = 1;
 	asset->w_win = asset->i * 40;
 	asset->h_win = asset->j * 40;
 	valid_path(asset);
-	if (asset->i == asset->j)
-		error();
 	asset->mlx_win = mlx_new_window(asset->mlx,
 			asset->w_win, asset->h_win, "so_long");
 	if (!asset->mlx_win)
